@@ -1,0 +1,1 @@
+{"name":"golmok-bungeo","private":true,"type":"module","scripts":{"test":"node --test game.test.mjs","start":"node server.mjs"}}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f7eee3"><meta name="description" content="추운 겨울 골목에서 시작하는 나만의 붕어빵 가게. 굽고 뒤집고 판매하는 작은 타이쿤 게임."><title>골목 붕어빵 — 오늘도 따끈하게</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='50'%3E🐟%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="style.css"></head>
+<body>
+<svg class="svg-defs" aria-hidden="true"><defs>
+<symbol id="fish" viewBox="0 0 160 100"><path d="M43 50 13 25 17 49 12 75 43 61C60 100 139 91 149 54 140 13 63 4 43 50Z" fill="currentColor" stroke="#8d4d2a" stroke-width="3" stroke-linejoin="round"/><path d="M64 23 80 9 98 23M64 77 80 91 98 77" fill="currentColor" stroke="#8d4d2a" stroke-width="3"/><path d="M107 27C93 43 93 62 109 77M51 41l15 10-15 12M69 30l14 14-14 14 14 14M87 29l12 12M86 62l12 12M21 38l16 13-17 11" fill="none" stroke="#ae713b" stroke-width="3" stroke-linecap="round"/><circle cx="123" cy="41" r="4" fill="#65402f"/><path d="M133 58q-7 8-13 0" fill="none" stroke="#65402f" stroke-width="3" stroke-linecap="round"/></symbol>
+<symbol id="spark" viewBox="0 0 24 24"><path d="m12 0 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z" fill="currentColor"/></symbol>
+</defs></svg>
+<div class="app">
+ <header class="top"><a class="wordmark" href="./"><span class="brand-icon">♨</span> 골목 붕어빵 <span class="brand-en">BUNGEOPPANG TYCOON</span></a><div class="header-actions"><button id="sound" class="icon-button" aria-label="소리 켜기" title="소리 켜기">♪<span class="sound-off">OFF</span></button><button id="help" class="icon-button" aria-label="게임 방법">?</button><button id="pause" class="icon-button" aria-label="일시정지" title="일시정지">Ⅱ</button></div></header>
+ <section class="hero"><div><div class="eyebrow"><span></span> 작은 가게, 따뜻한 하루</div><h1>오늘도 <span>따끈하게.</span></h1><p>골목 끝 작은 붕어빵 가게에 어서 오세요.</p></div><div class="day-card"><span>우리 가게 영업일지</span><strong>DAY <b id="day">01</b></strong><small id="weather">눈 오는 날 · 손님이 기다려요</small></div></section>
+ <section class="stats" aria-label="영업 현황"><div class="stat"><span class="stat-icon">₩</span><div><small>오늘 매출</small><strong id="revenue">0<span>원</span></strong></div></div><div class="stat goal-stat"><div><small>오늘의 목표 <b id="target">10,000원</b></small><div class="meter"><i id="goal-fill"></i></div><span id="goal-text">차근차근, 첫 붕어빵부터!</span></div></div><div class="stat"><span class="stat-icon clock-icon">◷</span><div><small>남은 영업 시간</small><strong id="time">01:30</strong></div></div><div class="stat"><span class="stat-icon">♡</span><div><small>연속 주문 성공</small><strong id="combo">0 <span>콤보</span></strong></div></div></section>
+ <div class="play-layout">
+  <main class="stall">
+   <div class="awning"><span>골목 붕어빵</span><div class="awning-tag">정성 한 스푼, 행복 두 마리</div></div>
+   <div class="stall-interior">
+    <div class="grill-header"><div><span class="live-dot"></span><b>따끈따끈 굽는 중</b></div><span class="tiny">빈 틀을 눌러 반죽을 넣어요</span></div>
+    <div class="griddle" id="griddle" aria-label="붕어빵 굽는 틀"></div>
+    <div class="grill-legend"><span><i class="legend-dot raw"></i>반죽 넣기</span><span>→</span><span><i class="legend-dot flip"></i>뒤집기</span><span>→</span><span><i class="legend-dot done"></i>꺼내기</span><span class="burn-tip">너무 늦으면 타요!</span></div>
+    <div class="ingredients"><div class="ingredient-caption">오늘의 속 재료<span>굽기 전에 골라주세요</span></div><button class="ingredient selected" data-recipe="bean" aria-pressed="true"><span class="filling bean">●</span><div><b>달콤한 팥</b><small>클래식은 영원해</small></div><kbd>Q</kbd></button><button class="ingredient" data-recipe="cream" aria-pressed="false"><span class="filling cream">●</span><div><b>부드러운 슈크림</b><small>입안 가득 사르르</small></div><kbd>W</kbd></button></div>
+   </div>
+   <div class="tray"><div class="tray-title"><b>갓 구운 붕어빵</b><span id="tray-total">보관함 0 / 12</span></div><div class="tray-items"><div><svg class="tray-fish bean-fish"><use href="#fish"/></svg><span>팥 <b id="bean-count">0</b>개</span></div><div><svg class="tray-fish cream-fish"><use href="#fish"/></svg><span>슈크림 <b id="cream-count">0</b>개</span></div><p>완성된 붕어빵을 모아<br>손님에게 건네주세요.</p></div></div>
+   <div class="stall-bottom"><span>♡ 마음까지 따뜻해지는 한 입</span><span>EST. TODAY</span></div>
+  </main>
+  <aside class="customers-panel"><div class="section-heading"><div><span class="eyebrow">WELCOME TO THE ALLEY</span><h2>기다리는 손님 <span id="queue-count">0</span></h2></div><span class="snowflake">❄</span></div><p class="customer-hint">주문이 준비되면 손님 카드를 눌러주세요.</p><div id="customers" class="customer-list"></div><div class="tip-card"><span>✦</span><p id="tip">빨리 건네면 팁을 받을 수 있어요.<br>연속으로 주문을 맞추면 콤보 보너스!</p></div></aside>
+ </div>
+ <section class="shop"><div class="shop-head"><div><span class="eyebrow">A LITTLE BETTER, EVERY DAY</span><h2>우리 가게 키우기</h2><p>영업을 마치고 모은 돈으로 업그레이드해요.</p></div><div class="wallet">가게 지갑 <strong id="wallet">0원</strong></div></div><div id="upgrades" class="upgrade-grid"></div></section>
+ <footer><span>골목 붕어빵 <i>·</i> 당신의 작은 겨울 가게</span><span>자동 저장 <i>·</i> PC / 모바일</span><button id="reset">새 가게 시작</button></footer>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<dialog id="modal"><div id="modal-content"></div></dialog>
+<script type="module" src="app.js"></script>
+</body></html>
