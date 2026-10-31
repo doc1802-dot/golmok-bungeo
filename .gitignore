@@ -1,0 +1,10 @@
+node_modules/
+.vercel/
+dist/.vercel/
+.env
+.env.*
+!.env.example
+.openai/
+reviews/*.backup.*
+reviews/hermes-task.txt
+*.log
